@@ -7,7 +7,7 @@ nombre_defaites = 0
 nombre_victoires_consecutives = 0
 def initialisationdelapartie():
     global nombre_victoires
-    if nombre_victoires > 3:
+    if nombre_victoires > 2:
         force_adversaire = random.randint(6, 11)
         print(force_adversaire)
     else:
