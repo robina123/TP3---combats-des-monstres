@@ -1,10 +1,18 @@
+# Arthur Robin
+# 11/21/2022
+# Combat_de_monstres
+
+# J'importe random et je définis mes variables
 import random
+
 niveau_de_vie = 20
 numero_adversaire = 1
 numero_combat = 0
 nombre_victoires = 0
 nombre_defaites = 0
 nombre_victoires_consecutives = 0
+
+
 def initialisationdelapartie():
     global nombre_victoires
     if nombre_victoires > 2:
@@ -13,15 +21,18 @@ def initialisationdelapartie():
     else:
         force_adversaire = random.randint(1, 11)
         print(force_adversaire)
-    print ('Vous tombez face a face avec un adversaire de difficulte:', force_adversaire)
-    choix = input('Que voulez vous faire ?\n1- Combattre cet adversaire \n2- Contourner cet adversaire et aller ouvrir une autre porte\n3- Afficher les rèels du jeu\n4- Quitter le jeu')
+    print('Vous tombez face a face avec un adversaire de difficulte:', force_adversaire)
+    choix = input(
+        'Que voulez vous faire ?\n1- Combattre cet adversaire \n2- Contourner cet adversaire et aller ouvrir une autre porte\n3- Afficher les rèels du jeu\n4- Quitter le jeu')
     if choix == '1':
         global numero_combat
         global numero_adversaire
         global niveau_de_vie
         global nombre_defaites
         global nombre_victoires_consecutives
-        print('Vous avez choisi de combattre cet adversaire\n Adversaire:', numero_adversaire, '\n Force de l adversaire:', force_adversaire, '\n Niveau de vie de l\'usager:', niveau_de_vie, '\n Combat:', numero_combat, ':', nombre_victoires, 'vs', nombre_defaites)
+        print('Vous avez choisi de combattre cet adversaire\n Adversaire:', numero_adversaire,
+              '\n Force de l adversaire:', force_adversaire, '\n Niveau de vie de l\'usager:', niveau_de_vie,
+              '\n Combat:', numero_combat, ':', nombre_victoires, 'vs', nombre_defaites)
         score_dé = random.randint(1, 6)
         score_dé2 = random.randint(1, 6)
         final_dé = score_dé + score_dé2
@@ -57,15 +68,20 @@ def initialisationdelapartie():
               'Dans ce cas, le niveau de vie de l’usager est diminué de la force de l’adversaire.\n'
               'La partie se termine lorsque les points de vie de l’usager tombent sous 0.\n'
               'L’usager peut combattre ou éviter chaque adversaire, dans le cas de l’évitement, il y a une pénalité de 1 point de vie.')
+
+
 def recommencer():
     choix = input("Voulez vous jouer? (oui/non)")
     if choix == 'oui':
         return True
     elif choix == 'non':
         return False
+
+
 def main():
     while recommencer():
         initialisationdelapartie()
 
 
 main()
+
