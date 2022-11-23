@@ -21,16 +21,13 @@ def initialisationdelapartie():
         print(force_adversaire)
     else:
         force_adversaire = random.randint(1, 11)
+# permet de donner la force de l'aversaire a l'utilisateur 
         print(force_adversaire)
     print('Vous tombez face a face avec un adversaire de difficulte:', force_adversaire)
     choix = input(
         'Que voulez vous faire ?\n1- Combattre cet adversaire \n2- Contourner cet adversaire et aller ouvrir une autre porte\n3- Afficher les rèels du jeu\n4- Quitter le jeu')
     if choix == '1':
-        global numero_combat
-        global numero_adversaire
-        global niveau_de_vie
-        global nombre_defaites
-        global nombre_victoires_consecutives
+        global numero_combat, numero_adversaire, niveau_de_vie, nombre_defaites, nombre_victoires_consecutives 
         print('Vous avez choisi de combattre cet adversaire\n Adversaire:', numero_adversaire,
               '\n Force de l adversaire:', force_adversaire, '\n Niveau de vie de l\'usager:', niveau_de_vie,
               '\n Combat:', numero_combat, ':', nombre_victoires, 'vs', nombre_defaites)
@@ -38,6 +35,7 @@ def initialisationdelapartie():
         score_dé2 = random.randint(1, 6)
         final_dé = score_dé + score_dé2
         print('Lancer du dé:', final_dé)
+# si l'utlisateur gagne le combat son niveau de vie agumente et une victoires consecutives est rajoute a son palmares.        
         if final_dé > force_adversaire:
             print('Vous avez gagné le combat')
             niveau_de_vie = niveau_de_vie + force_adversaire
@@ -47,6 +45,7 @@ def initialisationdelapartie():
             numero_adversaire = numero_adversaire + 1
             numero_combat = numero_combat + 1
             nombre_victoires = nombre_victoires + 1
+# si il perd le combat son niveau de vie diminue et le numero de combat etle numero d'adversaire augmente             
         else:
             print('Vous avez perdu le combat')
             niveau_de_vie = niveau_de_vie - force_adversaire
@@ -58,10 +57,12 @@ def initialisationdelapartie():
             if niveau_de_vie == 0:
                 print('La partie est terminée, vous avez vaincu', nombre_victoires, 'monstres')
                 niveau_de_vie = 20
+# Le choix 2 fait perdre une vie a l'utlisateur car il contourne le boss               
     if choix == '2':
         print('Vous avez choisi de contourner le monstre, vous allez perdre une vie')
         niveau_de_vie = niveau_de_vie - 1
         print('Votre niveau de vie est de:', niveau_de_vie)
+# Le choix 3 donne les regles du jeu a l'utlisateur         
     if choix == '3':
         print('Pour réussir un combat, il faut que la valeur du dé lancé soit supérieure à la force de l’adversaire.'
               'Dans ce cas, le niveau de vie de l’usager est augmenté de la force de l’adversaire.\n'
@@ -86,3 +87,5 @@ def main():
 
 main()
 
+
+# String???
