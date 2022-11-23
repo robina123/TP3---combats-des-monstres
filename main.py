@@ -27,14 +27,17 @@ def initialisationdelapartie():
     choix = input(
         'Que voulez vous faire ?\n1- Combattre cet adversaire \n2- Contourner cet adversaire et aller ouvrir une autre porte\n3- Afficher les rèels du jeu\n4- Quitter le jeu')
     if choix == '1':
-        global numero_combat, numero_adversaire, niveau_de_vie, nombre_defaites, nombre_victoires_consecutives 
+# Permet de donner des information a l'utilisateur sur le nombre de combat effectue, les victoires, defaites, son niveau de vie, etc...
+global numero_combat, numero_adversaire, niveau_de_vie, nombre_defaites, nombre_victoires_consecutives 
         print('Vous avez choisi de combattre cet adversaire\n Adversaire:', numero_adversaire,
               '\n Force de l adversaire:', force_adversaire, '\n Niveau de vie de l\'usager:', niveau_de_vie,
               '\n Combat:', numero_combat, ':', nombre_victoires, 'vs', nombre_defaites)
         score_dé = random.randint(1, 6)
         score_dé2 = random.randint(1, 6)
         final_dé = score_dé + score_dé2
-        print('Lancer du dé:', final_dé)
+        print('Lancer du dés #1:', score_dé)
+        print('Lancer du dés #2:', score_dé2)
+        print('Total des deux dés:', final_dé)
 # si l'utlisateur gagne le combat son niveau de vie agumente et une victoires consecutives est rajoute a son palmares.        
         if final_dé > force_adversaire:
             print('Vous avez gagné le combat')
