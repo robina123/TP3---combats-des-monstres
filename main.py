@@ -87,8 +87,5 @@ def main():
     while recommencer():
         initialisationdelapartie()
 
-
+# Lance le code python ! :))
 main()
-
-
-# String???
