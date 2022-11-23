@@ -16,11 +16,11 @@ nombre_victoires_consecutives = 0
 def initialisationdelapartie():
     global nombre_victoires
 # Si le nombre de victoire est plus grand que deux alors la difficulte du monstres augmente autrement le force de l'adversaire ne change pas     
-    if nombre_victoires > 2:
+    if nombre_victoires >= 3:
         force_adversaire = random.randint(6, 11)
         print(force_adversaire)
     else:
-        force_adversaire = random.randint(1, 11)
+        force_adversaire = random.randint(2, 11)
 # permet de donner la force de l'aversaire a l'utilisateur 
         print(force_adversaire)
     print('Vous tombez face a face avec un adversaire de difficulte:', force_adversaire)
