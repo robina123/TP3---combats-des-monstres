@@ -15,6 +15,7 @@ nombre_victoires_consecutives = 0
 
 def initialisationdelapartie():
     global nombre_victoires
+# Si le nombre de victoire est plus grand que deux alors la difficulte du monstres augmente autrement le force de l'adversaire ne change pas     
     if nombre_victoires > 2:
         force_adversaire = random.randint(6, 11)
         print(force_adversaire)
@@ -69,7 +70,7 @@ def initialisationdelapartie():
               'La partie se termine lorsque les points de vie de l’usager tombent sous 0.\n'
               'L’usager peut combattre ou éviter chaque adversaire, dans le cas de l’évitement, il y a une pénalité de 1 point de vie.')
 
-
+# Cette fonction sert a demander a l'utilisateur du jeu s'il veut recommencer la partie 
 def recommencer():
     choix = input("Voulez vous jouer? (oui/non)")
     if choix == 'oui':
