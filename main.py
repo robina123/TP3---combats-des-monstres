@@ -15,20 +15,18 @@ nombre_victoires_consecutives = 0
 
 def initialisationdelapartie():
     global nombre_victoires
-# Si le nombre de victoire est plus grand que deux alors la difficulte du monstres augmente autrement le force de l'adversaire ne change pas     
+# Si le nombre de victoire est plus grand que deux alors la difficulte du monstres augmente autrement le force de l'adversaire ne change pas
     if nombre_victoires >= 3:
         force_adversaire = random.randint(6, 11)
-        print(force_adversaire)
     else:
         force_adversaire = random.randint(2, 11)
-# permet de donner la force de l'aversaire a l'utilisateur 
-        print(force_adversaire)
+# permet de donner la force de l'aversaire a l'utilisateur
     print('Vous tombez face a face avec un adversaire de difficulte:', force_adversaire)
     choix = input(
         'Que voulez vous faire ?\n1- Combattre cet adversaire \n2- Contourner cet adversaire et aller ouvrir une autre porte\n3- Afficher les rèels du jeu\n4- Quitter le jeu')
     if choix == '1':
 # Permet de donner des information a l'utilisateur sur le nombre de combat effectue, les victoires, defaites, son niveau de vie, etc...
-global numero_combat, numero_adversaire, niveau_de_vie, nombre_defaites, nombre_victoires_consecutives 
+        global numero_combat, numero_adversaire, niveau_de_vie, nombre_defaites, nombre_victoires_consecutives
         print('Vous avez choisi de combattre cet adversaire\n Adversaire:', numero_adversaire,
               '\n Force de l adversaire:', force_adversaire, '\n Niveau de vie de l\'usager:', niveau_de_vie,
               '\n Combat:', numero_combat, ':', nombre_victoires, 'vs', nombre_defaites)
@@ -38,7 +36,7 @@ global numero_combat, numero_adversaire, niveau_de_vie, nombre_defaites, nombre_
         print('Lancer du dés #1:', score_dé)
         print('Lancer du dés #2:', score_dé2)
         print('Total des deux dés:', final_dé)
-# si l'utlisateur gagne le combat son niveau de vie agumente et une victoires consecutives est rajoute a son palmares.        
+# si l'utlisateur gagne le combat son niveau de vie agumente et une victoires consecutives est rajoute a son palmares.
         if final_dé > force_adversaire:
             print('Vous avez gagné le combat')
             niveau_de_vie = niveau_de_vie + force_adversaire
@@ -48,7 +46,7 @@ global numero_combat, numero_adversaire, niveau_de_vie, nombre_defaites, nombre_
             numero_adversaire = numero_adversaire + 1
             numero_combat = numero_combat + 1
             nombre_victoires = nombre_victoires + 1
-# si il perd le combat son niveau de vie diminue et le numero de combat etle numero d'adversaire augmente             
+# si il perd le combat son niveau de vie diminue et le numero de combat etle numero d'adversaire augmente
         else:
             print('Vous avez perdu le combat')
             niveau_de_vie = niveau_de_vie - force_adversaire
@@ -57,15 +55,15 @@ global numero_combat, numero_adversaire, niveau_de_vie, nombre_defaites, nombre_
             numero_combat = numero_combat + 1
             nombre_defaites = nombre_defaites + 1
             nombre_victoires_consecutives = 0
-            if niveau_de_vie == 0:
+            if niveau_de_vie ⩽= 0:
                 print('La partie est terminée, vous avez vaincu', nombre_victoires, 'monstres')
                 niveau_de_vie = 20
-# Le choix 2 fait perdre une vie a l'utlisateur car il contourne le boss               
+# Le choix 2 fait perdre une vie a l'utlisateur car il contourne le boss
     if choix == '2':
         print('Vous avez choisi de contourner le monstre, vous allez perdre une vie')
         niveau_de_vie = niveau_de_vie - 1
         print('Votre niveau de vie est de:', niveau_de_vie)
-# Le choix 3 donne les regles du jeu a l'utlisateur         
+# Le choix 3 donne les regles du jeu a l'utlisateur
     if choix == '3':
         print('Pour réussir un combat, il faut que la valeur du dé lancé soit supérieure à la force de l’adversaire.'
               'Dans ce cas, le niveau de vie de l’usager est augmenté de la force de l’adversaire.\n'
@@ -74,7 +72,7 @@ global numero_combat, numero_adversaire, niveau_de_vie, nombre_defaites, nombre_
               'La partie se termine lorsque les points de vie de l’usager tombent sous 0.\n'
               'L’usager peut combattre ou éviter chaque adversaire, dans le cas de l’évitement, il y a une pénalité de 1 point de vie.')
 
-# Cette fonction sert a demander a l'utilisateur du jeu s'il veut recommencer la partie 
+# Cette fonction sert a demander a l'utilisateur du jeu s'il veut recommencer la partie
 def recommencer():
     choix = input("Voulez vous jouer? (oui/non)")
     if choix == 'oui':
