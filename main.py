@@ -55,7 +55,7 @@ def initialisationdelapartie():
             numero_combat = numero_combat + 1
             nombre_defaites = nombre_defaites + 1
             nombre_victoires_consecutives = 0
-            if niveau_de_vie ⩽= 0:
+            if niveau_de_vie <= 0:
                 print('La partie est terminée, vous avez vaincu', nombre_victoires, 'monstres')
                 niveau_de_vie = 20
 # Le choix 2 fait perdre une vie a l'utlisateur car il contourne le boss
