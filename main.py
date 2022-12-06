@@ -94,7 +94,6 @@ def recommencer():
         nombre_defaites = 0
         niveau_de_vie = 20
         nombre_victoires = 0
-        
         return True
     elif choix == 'non':
         return False
