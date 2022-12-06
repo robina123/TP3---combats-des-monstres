@@ -11,7 +11,7 @@ numero_combat = 0
 nombre_victoires = 0
 nombre_defaites = 0
 nombre_victoires_consecutives = 0
-
+quitter = False
 
 def initialisationdelapartie():
     global nombre_victoires
@@ -56,13 +56,20 @@ def initialisationdelapartie():
             nombre_defaites = nombre_defaites + 1
             nombre_victoires_consecutives = 0
             if niveau_de_vie <= 0:
+                global quitter
                 print('La partie est terminée, vous avez vaincu', nombre_victoires, 'monstres')
                 niveau_de_vie = 20
+                recommencer()
+
 # Le choix 2 fait perdre une vie a l'utlisateur car il contourne le boss
     if choix == '2':
         print('Vous avez choisi de contourner le monstre, vous allez perdre une vie')
         niveau_de_vie = niveau_de_vie - 1
         print('Votre niveau de vie est de:', niveau_de_vie)
+        if niveau_de_vie <= 0:
+            global quitter
+            print('La partie est terminée, vous avez vaincu', nombre_victoires, 'monstres')
+            recommencer()
 # Le choix 3 donne les regles du jeu a l'utlisateur
     if choix == '3':
         print('Pour réussir un combat, il faut que la valeur du dé lancé soit supérieure à la force de l’adversaire.'
@@ -72,17 +79,29 @@ def initialisationdelapartie():
               'La partie se termine lorsque les points de vie de l’usager tombent sous 0.\n'
               'L’usager peut combattre ou éviter chaque adversaire, dans le cas de l’évitement, il y a une pénalité de 1 point de vie.')
 
+    if choix == '4':
+        print('Vous avez choisi de quitter le jeu')
+        print('Au revoir')
+        quit()
+
 # Cette fonction sert a demander a l'utilisateur du jeu s'il veut recommencer la partie
 def recommencer():
-    choix = input("Voulez vous jouer? (oui/non)")
+    choix = input("Voulez vous recommencer? (oui/non)")
     if choix == 'oui':
+        global nombre_victoires, nombre_defaites, numero_combat, numero_adversaire, niveau_de_vie
+        numero_adversaire = 0
+        numero_combat = 0
+        nombre_defaites = 0
+        niveau_de_vie = 20
+        nombre_victoires = 0
+        
         return True
     elif choix == 'non':
         return False
 
 
 def main():
-    while recommencer():
+    while quitter != True:
         initialisationdelapartie()
 
 # Lance le code python ! :))
